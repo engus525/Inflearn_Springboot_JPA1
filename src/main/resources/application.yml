@@ -1,0 +1,24 @@
+#설정 파일이 많아지면 .properties보다 .yml이 낫다.
+
+#230406-이 파일이 templates와 같은 계층에 있어야하는데 하위에 있어서 진짜 개고생했다.
+#화가 나지만 어쨌든 혼자 힘으로 해결해서 다행이다.
+
+spring: #띄어쓰기 없음
+  datasource: #띄어쓰기 2칸
+    url: jdbc:h2:tcp://localhost/~/Desktop/IntelliJ_Projects/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa: #띄어쓰기 2칸
+    hibernate: #띄어쓰기 4칸
+      ddl-auto: create #띄어쓰기 6칸
+
+    properties: #띄어쓰기 4칸
+      hibernate: #띄어쓰기 6칸
+        # show_sql: true #띄어쓰기 8칸
+        format_sql: true #띄어쓰기 8칸
+
+logging.level: #띄어쓰기 없음
+  org.hibernate.SQL: debug #띄어쓰기 2칸
+  org.hibernate.type: trace #띄어쓰기 2칸
