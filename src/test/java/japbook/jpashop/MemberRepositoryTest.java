@@ -1,7 +1,5 @@
 package japbook.jpashop;
 
-import japbook.jpashop.Member;
-import japbook.jpashop.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
