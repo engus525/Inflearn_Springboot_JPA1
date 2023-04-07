@@ -23,5 +23,4 @@ public class Member
     @OneToMany(mappedBy = "member")//연관관계에서 주인이 !아님!
     private List<Order> orders = new ArrayList<>();
 
-
 }

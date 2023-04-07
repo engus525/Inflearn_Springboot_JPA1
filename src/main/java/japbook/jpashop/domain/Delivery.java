@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Getter @Setter
 public class Delivery
@@ -12,7 +14,7 @@ public class Delivery
     @Column(name = "delivery_id")
     private String id;
 
-    @OneToOne(mappedBy = "delivery")//1대1 관계에서 주인은 누가해도 상관없으나, 보통 외래 키 기준으로 설정
+    @OneToOne(mappedBy = "delivery",fetch = LAZY)//1대1 관계에서 주인은 누가해도 상관없으나, 보통 외래 키 기준으로 설정
     private Order order;
 
     @Embedded
