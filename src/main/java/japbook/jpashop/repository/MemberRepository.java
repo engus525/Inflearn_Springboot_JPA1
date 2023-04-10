@@ -3,15 +3,19 @@ package japbook.jpashop.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import japbook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository //Spring Bean에 등록(Component Scan)
+@RequiredArgsConstructor
 public class MemberRepository
 {
-    @PersistenceContext//JPA 표준 annotation
-    private EntityManager em;
+    //@PersistenceContext//JPA 표준 annotation
+//    em은 autowired로 injection이 안 되고 위의 annotation으로 해야하는데,
+//    spring boot에서 가능케함(근데 바뀔 예정)
+    private final EntityManager em;
 
     public void save(Member member)
     {
