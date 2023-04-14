@@ -2,14 +2,17 @@ package japbook.jpashop.domain;
 
 import jakarta.persistence.*;
 import japbook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @Getter @Setter
-public class OrderItem
+@NoArgsConstructor(access = AccessLevel.PROTECTED)//생성 메서드가 있으므로 다른 곳에서 생성하지 않도록
+public class  OrderItem
 {
     @Id @GeneratedValue
     @Column(name = "order_item_id")
@@ -29,7 +32,7 @@ public class OrderItem
     private int count;//주문 수량
 
     /****생성 메서드****/
-    public static OrderItem orderItem(Item item,int orderPrice,int count)
+    public static OrderItem createOrderItem(Item item,int orderPrice,int count)
     {
         //왜 다시 생성하는가? -> 할인 등을 받을 수 있기때문에 따로 생성하는게 맞다.
         OrderItem orderItem = new OrderItem();

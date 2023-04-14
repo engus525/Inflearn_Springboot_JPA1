@@ -1,7 +1,9 @@
 package japbook.jpashop.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -14,6 +16,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Entity
 @Table(name = "orders")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)//생성 메서드가 있으므로 다른 곳에서 생성하지 않도록
 public class Order
 {
     @Id @GeneratedValue
@@ -27,7 +30,7 @@ public class Order
 
     //cascade -> persist를 전파한다.
     //기본적으로 모든 entity를 persist 해줘야하는데,
-    // cascade를 통해 order만 persist하면 나머지는 자동으로 persist된다.
+    //cascade를 통해 order만 persist하면 나머지는 자동으로 persist된다.
     @OneToMany(mappedBy = "order",cascade = ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
