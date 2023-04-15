@@ -24,7 +24,6 @@ public class OrderService
     private final OrderRepository orderRepository;
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
-    private Order order;
 
     //주문
     @Transactional
@@ -54,7 +53,7 @@ public class OrderService
     @Transactional
     public void cancleOrder(Long orderId)
     {
-        orderRepository.findOne(orderId);
+        Order order = orderRepository.findOne(orderId);
         order.cancle();
     }
 
